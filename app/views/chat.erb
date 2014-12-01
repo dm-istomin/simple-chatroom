@@ -2,7 +2,6 @@
   <% @messages.each do |message| %>
     <p> <span id="user-name"><%= message.sender.name %></span>: <%= message.content %></p>
   <% end %>
-
 </div>
 
 <form id="user-input" action="message/new" method="POST">
