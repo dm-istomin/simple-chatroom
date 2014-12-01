@@ -1,4 +1,9 @@
-<div id="chatbox" style="border: 1px solid black"><p>Placeholder</p></div>
+<div id="chatbox">
+  <% @messages.each do |message| %>
+    <p> <span id="user-name"><%= message.sender.name %></span>: <%= message.content %></p>
+  <% end %>
+
+</div>
 
 <form id="user-input" action="message/new" method="POST">
   <textarea name="user[message]" id="message-box"></textarea>

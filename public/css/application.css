@@ -31,6 +31,6 @@ form, p, span {
   margin: 0 auto;
 }
 
-#submit-button {
-
+#user-name {
+  font-weight: bold;
 }
