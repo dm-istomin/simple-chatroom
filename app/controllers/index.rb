@@ -1,7 +1,11 @@
 get '/' do
   private_page!
   @messages = Message.all
-  erb :chat
+  if request.xhr?
+    erb :_chatbox, locals: { messages: @messages }, layout: false
+  else
+    erb :chat
+  end
 end
 
 post '/message/new' do
@@ -13,4 +17,8 @@ post '/message/new' do
     redirect('/wtf')
   end
 
+end
+
+get '/json' do
+  json a: 1, b: 2
 end

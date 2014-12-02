@@ -25,11 +25,13 @@ end
 
 post '/signup' do
   new_user = User.new(params[:user])
-
+  p new_user
   if new_user.save
-    session[:user_id] = user_id
+    p new_user
+    session[:user_id] = new_user.id
     redirect('/')
   else
+    p new_user
     redirect('/asdfasdfsad')
   end
 end
