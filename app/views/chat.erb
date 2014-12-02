@@ -1,8 +1,4 @@
-<div id="chatbox">
-  <% @messages.each do |message| %>
-    <p> <span id="user-name"><%= message.sender.name %>:</span> <span id="user-message"><%= message.content %></span></p>
-  <% end %>
-</div>
+<%= erb :_chatbox, locals: { messages: @messages }, layout: false %>
 
 <form id="user-input" action="message/new" method="POST">
   <textarea name="message" id="message-box"></textarea>
