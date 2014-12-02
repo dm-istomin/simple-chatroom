@@ -1,4 +1,5 @@
 get '/' do
+  protected!
   @messages = Message.all
   erb :chat
 end

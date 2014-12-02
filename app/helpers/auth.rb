@@ -5,3 +5,11 @@ def current_user
     return nil
   end
 end
+
+def logged_in?
+  session[:user_id] != nil
+end
+
+def protected!
+  redirect('/login') unless logged_in?
+end
