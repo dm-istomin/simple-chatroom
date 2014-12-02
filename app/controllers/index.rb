@@ -1,5 +1,5 @@
 get '/' do
-  protected!
+  private_page!
   @messages = Message.all
   erb :chat
 end

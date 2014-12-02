@@ -10,6 +10,6 @@ def logged_in?
   session[:user_id] != nil
 end
 
-def protected!
+def private_page!
   redirect('/login') unless logged_in?
 end
