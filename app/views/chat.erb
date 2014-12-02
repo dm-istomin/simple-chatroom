@@ -1,6 +1,8 @@
+<div id="chatbox">
 <%= erb :_chatbox, locals: { messages: @messages }, layout: false %>
+</div>
 
-<form id="user-input" action="message/new" method="POST">
+<form id="user-input" action="/message/new" method="POST">
   <textarea name="message" id="message-box"></textarea>
   <div><input id="submit-button" type="submit" value="Send"></div>
 </form>

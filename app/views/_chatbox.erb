@@ -1,5 +1,3 @@
-<div id="chatbox">
-  <% messages.each do |message| %>
-    <p> <span id="user-name"><%= message.sender.name %>:</span> <span id="user-message"><%= message.content %></span></p>
-  <% end %>
-</div>
+<% messages.each do |message| %>
+  <p> <span id="user-name"><%= message.sender.name %>:</span> <span id="user-message"><%= message.content %></span></p>
+<% end %>
