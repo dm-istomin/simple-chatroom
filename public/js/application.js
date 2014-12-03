@@ -1,33 +1,38 @@
+var latestMessage = 0;
+
 $(document).ready(function() {
 
   setInterval(function() {
+    console.log(latestMessage)
     updateChat();
-  }, 1000)
+  }, 2000)
 
-  var $target = $(event.target);
   var $chatbox = $('#chatbox');
+  $chatbox.html('WAAAA');
 
   function updateChat() {
+
     $.ajax({
-      url: '/',
-      method: "GET"
+      url: '/message/latest/' + latestMessage,
+      method: "GET",
+      dataType: "JSON"
     }).done(function(response) {
-      $chatbox.html(response);
+      // console.log(response);
+      if ($.isEmptyObject(response) != true) {
+        $chatbox.append(response.content);
+        latestMessage = parseInt(response.latest_id);
+      };
     })
   }
 
   $('#user-input').submit(function(event) {
     event.preventDefault();
     var $target = $(event.target);
-    var $chatbox = $('#chatbox');
 
     $.ajax({
       url: $target.attr('action'),
       method: $target.attr('method'),
       data: $target.serialize()
-    }).done(function(response) {
-      $target.find('textarea').val('');
-      $chatbox.html(response);
     })
   });
 });
